@@ -1,11 +1,309 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width="device-width", initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Greenora</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f4e9;
+        }
+
+
+        /*  Nav bar */
+
+        .navbar {
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background-color: #f5f4e9;
+
+            border-bottom: 1px solid #d9ddd4;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        /* website name */
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            font-weight: bold;
+
+            color: #173d2b;
+
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #c08c23;
+        }
+
+
+        /* nav link */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 40px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: #31513f;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+
+        /* Hover Color */
+
+        .nav-links a:hover {
+            color: #216b49;
+        }
+
+
+        /* Underline Animation */
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            width: 0;
+            height: 2px;
+
+            background-color: #c08c23;
+
+            left: 0;
+            bottom: -8px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+
+        /* mobile menu button */
+
+        .menu-btn {
+            display: none;
+
+            font-size: 28px;
+
+            border: none;
+
+            background: none;
+
+            color: #173d2b;
+
+            cursor: pointer;
+        }
+
+
+        /* tablet */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                gap: 22px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+        }
+
+
+        /* mobile*/
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                height: 70px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+
+            /* Mobile Navigation */
+
+            .nav-links {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: #f5f4e9;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                padding: 15px 0;
+
+                border-top: 1px solid #d9ddd4;
+
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            }
+
+
+            /* Show menu when button is clicked */
+
+            .nav-links.active {
+                display: flex;
+            }
+
+
+            .nav-links li {
+                width: 100%;
+
+                text-align: center;
+
+                padding: 12px 0;
+            }
+
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+
+            /* Mobile Button */
+
+            .menu-btn {
+                display: block;
+
+                font-size: 28px;
+
+                border: none;
+
+                background: none;
+
+                color: #173d2b;
+
+                cursor: pointer;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-    "We are currently working on this"
+
+
+    <!-- navbar -->
+
+    <header class="navbar">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="logo">
+            Green<span>ora</span>
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="solar.html">
+                    Solar Energy
+                </a>
+            </li>
+
+            <li>
+                <a href="wind.html">
+                    Wind Power
+                </a>
+            </li>
+
+            <li>
+                <a href="lifestyle.html">
+                    Green Lifestyle
+                </a>
+            </li>
+
+        </ul>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button class="menu-btn" type="button">
+            ☰
+        </button>
+
+
+    </header>
+
+
+    <!--  JAVASCRIPT  -->
+
+    <script>
+
+        const menuBtn = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuBtn.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+    </script>
+
+
 </body>
+
 </html>
+
