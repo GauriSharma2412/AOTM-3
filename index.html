@@ -1,16 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Greenora</title>
+    <title>EcoPower - Sustainable Energy Solutions</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -18,145 +14,289 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f4e9;
+            color: #2b2b2b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
+        h1, h2, h3, .logo {
+            font-family: 'Outfit', Georgia, serif;
+            letter-spacing: -0.02em;
+        }
 
-        /*  Nav bar */
-
+        /* Navbar */
         .navbar {
             width: 100%;
             height: 80px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 0 7%;
-
             background-color: #f5f4e9;
-
             border-bottom: 1px solid #d9ddd4;
-
             position: sticky;
             top: 0;
-
             z-index: 1000;
         }
 
-
-        /* website name */
-
         .logo {
-            font-family: Georgia, serif;
             font-size: 28px;
-            font-weight: bold;
-
+            font-weight: 700;
             color: #173d2b;
-
-            letter-spacing: -1px;
         }
 
         .logo span {
             color: #c08c23;
         }
 
-
-        /* nav link */
-
         .nav-links {
             display: flex;
             align-items: center;
-
-            gap: 40px;
-
+            gap: 36px;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-
             color: #31513f;
-
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
-
             position: relative;
-
-            transition: 0.3s;
+            transition: color 0.3s ease;
         }
 
-
-        /* Hover Color */
-
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #216b49;
         }
 
-
-        /* Underline Animation */
-
         .nav-links a::after {
             content: "";
-
             position: absolute;
-
             width: 0;
             height: 2px;
-
             background-color: #c08c23;
-
             left: 0;
             bottom: -8px;
-
-            transition: 0.3s;
+            transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
-
-        /* mobile menu button */
-
         .menu-btn {
             display: none;
-
             font-size: 28px;
-
             border: none;
-
             background: none;
-
             color: #173d2b;
-
             cursor: pointer;
         }
 
+        /* Hero Section */
+        .hero {
+            padding: 100px 7%;
+            background: linear-gradient(135deg, #173d2b, #216b49);
+            color: #ffffff;
+            text-align: center;
+        }
 
-        /* tablet */
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #e0eadd;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: #c08c23;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #a3751a;
+            transform: translateY(-1px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            color: #173d2b;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #d9ddd4;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: #173d2b;
+            margin-bottom: 12px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #555555;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .card-link {
+            color: #c08c23;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: #e8ece3;
+            padding: 60px 7%;
+            text-align: center;
+            border-top: 1px solid #d9ddd4;
+            border-bottom: 1px solid #d9ddd4;
+        }
+
+        .newsletter h2 {
+            font-size: 30px;
+            color: #173d2b;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .newsletter p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px 15px;
+            width: 70%;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 12px 20px;
+            background-color: #173d2b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #216b49;
+        }
+
+        /* Clean & Attractive Footer Styles */
+        .footer {
+            background-color: #173d2b;
+            color: #ffffff;
+            padding: 35px 7%;
+            text-align: center;
+            border-top: 3px solid #c08c23;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: #c08c23;
+        }
+
+        .footer-tagline {
+            color: #a4b8ab;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom {
+            font-size: 13px;
+            color: #d1ddd6;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
         @media (max-width: 900px) {
-
             .navbar {
                 padding: 0 5%;
             }
-
             .nav-links {
-                gap: 22px;
+                gap: 20px;
             }
-
             .nav-links a {
-                font-size: 13px;
+                font-size: 14px;
             }
         }
 
-
-        /* mobile*/
-
         @media (max-width: 650px) {
-
             .navbar {
                 height: 70px;
                 padding: 0 5%;
@@ -166,144 +306,131 @@
                 font-size: 24px;
             }
 
-
-            /* Mobile Navigation */
-
             .nav-links {
                 display: none;
-
                 position: absolute;
-
                 top: 70px;
                 left: 0;
-
                 width: 100%;
-
                 background: #f5f4e9;
-
                 flex-direction: column;
-
                 gap: 0;
-
                 padding: 15px 0;
-
                 border-top: 1px solid #d9ddd4;
-
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
             }
-
-
-            /* Show menu when button is clicked */
 
             .nav-links.active {
                 display: flex;
             }
 
-
             .nav-links li {
                 width: 100%;
-
                 text-align: center;
-
                 padding: 12px 0;
             }
 
-
-            .nav-links a {
-                font-size: 14px;
-            }
-
-
-            /* Mobile Button */
-
             .menu-btn {
                 display: block;
-
-                font-size: 28px;
-
-                border: none;
-
-                background: none;
-
-                color: #173d2b;
-
-                cursor: pointer;
             }
 
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 15px; }
+            .hero { padding: 60px 5%; }
+            .features { padding: 50px 5%; }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form input[type="email"],
+            .newsletter-form button {
+                width: 100%;
+            }
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
     <!-- navbar -->
-
     <header class="navbar">
-
-
-        <!-- LEFT SIDE -->
-
         <div class="logo">
-            Sustainable<span>Energy</span>
+            Eco<span>Power</span>
         </div>
 
-
-        <!-- RIGHT SIDE -->
-
         <ul class="nav-links">
-
-            <li>
-                <a href="solar.html">
-                    Solar Energy
-                </a>
-            </li>
-
-            <li>
-                <a href="wind.html">
-                    Wind Power
-                </a>
-            </li>
-
-            <li>
-                <a href="lifestyle.html">
-                    Green Lifestyle
-                </a>
-            </li>
-
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="solar.html">Solar Energy</a></li>
+            <li><a href="wind.html">Wind Power</a></li>
+            <li><a href="lifestyle.html">Green Lifestyle</a></li>
         </ul>
 
-
-        <!-- MOBILE MENU BUTTON -->
-
-        <button class="menu-btn" type="button">
+        <button class="menu-btn" type="button" aria-label="Toggle navigation">
             ☰
         </button>
-
-
     </header>
 
+    <!-- hero section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Powering a Cleaner, Greener Tomorrow</h1>
+            <p>Discover sustainable energy solutions that protect our planet and build a renewable future.</p>
+        </div>
+    </section>
 
-    <!--  JAVASCRIPT  -->
+    <!-- FEATURES / SERVICES SECTION -->
+    <section class="features" id="features">
+        <h2 class="section-title">Discover Renewable Energy</h2>
+        
+        <div class="grid-container">
+            <div class="card">
+                <h3>Solar Energy</h3>
+                <p>Harness clean power from the sun to reduce carbon footprint and cut energy costs effectively.</p>
+                <a href="solar.html" class="card-link">Learn More &rarr;</a>
+            </div>
 
+            <div class="card">
+                <h3>Wind Power</h3>
+                <p>Utilize wind turbines to generate reliable, renewable electricity for homes and businesses.</p>
+                <a href="wind.html" class="card-link">Learn More &rarr;</a>
+            </div>
+
+            <div class="card">
+                <h3>Green Lifestyle</h3>
+                <p>Adopt simple eco-friendly habits and sustainable choices for everyday life.</p>
+                <a href="lifestyle.html" class="card-link">Learn More &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest tips on eco-friendly living and green energy updates.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-logo">Eco<span>Power</span></div>
+        <p class="footer-tagline">Building a sustainable & renewable future together.</p>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EcoPower. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
     <script>
-
         const menuBtn = document.querySelector(".menu-btn");
         const navLinks = document.querySelector(".nav-links");
 
         menuBtn.addEventListener("click", function () {
-
             navLinks.classList.toggle("active");
-
         });
-
     </script>
 
-
 </body>
-
 </html>
-
