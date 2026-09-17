@@ -24,7 +24,7 @@
             font-family: 'Outfit', Georgia, serif;
         }
 
-        /* navbar */
+        /* Navbar  */
         .navbar {
             width: 100%;
             height: 80px;
@@ -99,7 +99,7 @@
             margin: 0px auto;
         }
 
-       
+        /* Main Content */
         .content-section {
             padding: 60px 80px;
             max-width: 1200px;
@@ -121,15 +121,16 @@
             margin: 0px auto 50px auto;
         }
 
-        /* Benefits Grid */
+        /* Benefits Grid  */
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
             margin-bottom: 60px;
         }
 
         .benefit-card {
+            flex: 1;
             background-color: #ffffff;
             padding: 30px;
             border-radius: 12px;
@@ -214,7 +215,7 @@
             background-color: #216b49;
         }
 
-        /* Footer Styling */
+        /* Footer  */
         .footer {
             background-color: #0e291c;
             color: #ffffff;
@@ -242,7 +243,27 @@
             padding-top: 15px;
         }
 
-        /* Responsive Design */
+        
+        /* Tablet View (Max Width: 992px) */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0px 40px;
+            }
+
+            .content-section {
+                padding: 50px 40px;
+            }
+
+            .benefits-grid {
+                flex-wrap: wrap; /* Cards adjust honge jab space kam ho */
+            }
+
+            .benefit-card {
+                flex: 1 1 45%; 
+            }
+        }
+
+        /* Mobile View (Max Width: 768px) */
         @media (max-width: 768px) {
             .navbar {
                 padding: 0px 20px;
@@ -276,6 +297,18 @@
             .page-banner h1 {
                 font-size: 32px;
             }
+
+            .page-banner p {
+                font-size: 15px;
+            }
+
+            .benefits-grid {
+                flex-direction: column; 
+            }
+
+            .types-container {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
@@ -305,7 +338,7 @@
     </section>
 
     <!-- Main Content -->
-    main class="content-section">
+    <main class="content-section">
         <h2 class="section-title">Why Choose Solar Energy?</h2>
         <p class="intro-text">
             Solar energy is one of the cleanest and most abundant renewable energy sources available today. By converting sunlight into electricity, we reduce dependency on fossil fuels and lower carbon emissions.
