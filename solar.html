@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Energy - EcoPower</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f4f6f3;
+            color: #2b2b2b;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Outfit', Georgia, serif;
+        }
+
+        /* navbar */
+        .navbar {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 80px;
+            background-color: #f5f4e9;
+            border-bottom: 1px solid #d9ddd4;
+            position: sticky;
+            top: 0px;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #173d2b;
+        }
+
+        .logo span {
+            color: #c08c23;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #31513f;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #216b49;
+            border-bottom: 2px solid #c08c23;
+            padding-bottom: 4px;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            border: none;
+            background: none;
+            color: #173d2b;
+            cursor: pointer;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(135deg, #0e291c 0%, #173d2b 50%, #216b49 100%);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .page-banner p {
+            font-size: 18px;
+            color: #d1ded2;
+            max-width: 600px;
+            margin: 0px auto;
+        }
+
+       
+        .content-section {
+            padding: 60px 80px;
+            max-width: 1200px;
+            margin: 0px auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: #173d2b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: #444444;
+            text-align: center;
+            max-width: 800px;
+            margin: 0px auto 50px auto;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .benefit-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e1e6de;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .benefit-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            color: #173d2b;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: #555555;
+        }
+
+        /* Solar Types Section */
+        .types-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e1e6de;
+            margin-bottom: 60px;
+        }
+
+        .types-container h2 {
+            font-size: 28px;
+            color: #173d2b;
+            margin-bottom: 20px;
+        }
+
+        .types-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .types-list li {
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: #333333;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: #e8ece3;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #d9ddd4;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            color: #173d2b;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #173d2b;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+        }
+
+        .cta-btn:hover {
+            background-color: #216b49;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #0e291c;
+            color: #ffffff;
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+            border-top: 3px solid #c08c23;
+            margin-top: 60px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: #c08c23;
+        }
+
+        .footer-bottom {
+            font-size: 13px;
+            color: #8fa396;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0px 20px;
+            }
+
+            .content-section {
+                padding: 40px 20px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0px;
+                width: 100%;
+                background-color: #f5f4e9;
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 0px;
+                border-top: 1px solid #d9ddd4;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .page-banner h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            🌱 Eco<span>Power</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="solar.html" class="active">Solar Energy</a></li>
+            <li><a href="wind.html">Wind Power</a></li>
+            <li><a href="lifestyle.html">Green Lifestyle</a></li>
+        </ul>
+
+        <button class="menu-btn" type="button">☰</button>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>Solar Energy Solutions</h1>
+        <p>Harness the power of the sun to create clean, unlimited, and sustainable energy for a better future.</p>
+    </section>
+
+    <!-- Main Content -->
+    main class="content-section">
+        <h2 class="section-title">Why Choose Solar Energy?</h2>
+        <p class="intro-text">
+            Solar energy is one of the cleanest and most abundant renewable energy sources available today. By converting sunlight into electricity, we reduce dependency on fossil fuels and lower carbon emissions.
+        </p>
+
+        <!-- Benefits Grid -->
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💡</div>
+                <h3>Lower Electricity Bills</h3>
+                <p>Generating your own power means you buy less electricity from the grid, saving money on monthly bills.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🌍</div>
+                <h3>Eco-Friendly</h3>
+                <p>Solar energy reduces greenhouse gas emissions and helps combat global climate change effectively.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">🔋</div>
+                <h3>Low Maintenance</h3>
+                <p>Solar panel systems require minimal maintenance and can perform efficiently for up to 25–30 years.</p>
+            </div>
+        </div>
+
+        <!-- Solar Systems Info -->
+        <div class="types-container">
+            <h2>Types of Solar Systems</h2>
+            <ul class="types-list">
+                <li><strong>Grid-Tied Systems:</strong> Connected to the main power grid; sends excess energy back for credits.</li>
+                <li><strong>Off-Grid Systems:</strong> Operates independently using batteries to store power for day and night use.</li>
+                <li><strong>Hybrid Systems:</strong> Combines grid connectivity with battery storage for maximum reliability.</li>
+            </ul>
+        </div>
+
+        <!-- Call To Action -->
+        <div class="cta-section">
+            <h2>Ready to Switch to Solar?</h2>
+            <p>Get in touch with us to get a free consultation and customized solar installation plan.</p>
+            <a href="index.html#features" class="cta-btn">Learn More</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Eco<span>Power</span></div>
+        <p>&copy; 2026 EcoPower. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const menuBtn = document.querySelector(".menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+
+</body>
+
+</html>
